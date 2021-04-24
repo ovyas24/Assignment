@@ -23,6 +23,7 @@ class Helper {
 
     async addProduct({ name, price, description }, image) {
         try {
+            console.log(name, price, description, image);
             const newProduct = new Product({
                 name, price, image, description
             })
@@ -43,6 +44,8 @@ class Helper {
             updates.price = price ? price : product.price
             updates.image = image ? image : product.image
             updates.description = description ? description : product.description
+
+            console.log(updates);
             
             const isUpdated = await Product.updateOne({ _id: id }, updates)
 
